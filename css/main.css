@@ -1,19 +1,33 @@
-ody{
+*{
+    box-sizing: border-box;
+}
+
+boody{
     margin: 0;
-    /* height: 100vh; */
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 canvas{
     display: block;
     margin: 0 auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .canvas-container{
+    display: none;
     background-color: deepskyblue;
     margin: 0 auto;
     /* padding: 20px; */
-    width: 90vw;
-    height: 90vh;
+    width: 450px;
+    height: 450px;
     border: 1px solid red;
+}
+.grid-container{
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
 }

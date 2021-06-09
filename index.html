@@ -11,14 +11,14 @@
 
 <body onload="init()">
 
-    <input oninput =onTypeInput() name="todoTxt" type="text" placeholder="" autocomplete="off" />
-
+    <h2>Ultimate Meme Generator</h2>
     <div class="canvas-container">
+        <input oninput=onTypeInput() name="todoTxt" type="text" placeholder="" autocomplete="off" />
         <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+        <button onclick="pageBack()" >back to gallery</button>
     </div>
-    <img onclick="drawImg('/image/1.jpg')" src="/image/1.jpg" alt="" srcset="">
-    <img onclick="drawImg('/image/2.jpg')" src="/image/2.jpg" alt="" srcset="">
-
+    <section class="grid-container">
+    </section>
 
     <script src="/js/controler.js"></script>
     <script src="/js/servise.js"></script>

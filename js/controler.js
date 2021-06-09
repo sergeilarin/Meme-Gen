@@ -2,31 +2,21 @@
 var gCanvas;
 var gCtx;
 
-var gImages = [
-    {
-        id: 1,
-        url: 'img/1.jpg',
-        keywords: ['happy']
-    }
-]
-
-var gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: '',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }
-    ]
-}
-console.log(gMeme.lines[0].txt);
 function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
-    console.log(gCtx);
+    randerGallery()
+
+    
+
+}
+
+function randerGallery() {
+    var imges = getImges()
+    var strHTMLS = imges.map((img) => {
+        return `<img onclick="setImg(${img.id})" src="${img.url}" alt="" srcset=""></img>`
+    })
+    document.querySelector('.grid-container').innerHTML = strHTMLS
 }
 
 function drawText(text, x, y) {
@@ -39,36 +29,19 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y)
 }
 
-function drawImg(imge) {
-    var img = new Image()
-    console.log(img);
-    img.src = 'img/1.jpg';
-    console.log(img.src);
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    }
-}
 function draw(ev) {
     const offsetX = ev.offsetX
     const offsetY = ev.offsetY
 
     drawText(gMeme.lines[0].txt, offsetX, offsetY)
-    // switch (gCurrShape) {
-    //     case 'triangle':
-    //         drawTriangle(offsetX, offsetY)
-    //         break;
-    //     case 'rect':
-    //         drawRect(offsetX, offsetY)
-    //         break;
-    //     case 'text':
-    //         drawText('Puki', offsetX, offsetY)
-    //         break;
-    //     case 'line':
-    //         drawLine(offsetX, offsetY)
-    //         break;
-    // }
+    
 }
 
 function onTypeInput() {
     gMeme.lines[0].txt = document.querySelector('input[name=todoTxt]').value
+    randerGenerator()
+}
+function pageBack() {
+    document.querySelector('.canvas-container').style.display = 'none'
+    document.querySelector('.grid-container').style.display = 'grid'
 }
