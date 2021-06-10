@@ -10,32 +10,44 @@
 </head>
 
 <body onload="init()">
+    <header class="main-header ">
 
-    <nav class="nav-bar">
+        <div class="logo "><img src="./img/LOGO.png" alt="" srcset=""></div>
+        <ul class="main-nav clean-list ">
+            <li onclick="pageBack()"><a href="#">Gallery</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+    </header>
+
+    <!-- <nav class="nav-bar">
         <div class="logo"><img src="./img/LOGO.png" alt="" srcset=""></div>
         <button onclick="pageBack()">Gullery</button>
         <button>About</button>
-    </nav>
-    <main></main>
-    <!-- <div class="main-editor">
-        <button class="clear"></button>
-        <button class="plus"></button>
-        <button class="line"></button>
-    </div> -->
+    </nav> -->
     <div class="canvas-container">
         <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
         <input oninput=onTypeInput() name="todoTxt" type="text" placeholder="" autocomplete="off" />
-        <button onclick="setFontSize(2)">+</button>
-        <button onclick="setFontSize(-2)">-</button>
-        <button onclick="setLineHight(10)">Up</button>
-        <button onclick="setLineHight(-10)">Down</button>
-        <button onclick="addLine()" >add line</button>
-        <button onclick="switchLine(0)" >Switch line up</button>
-        <button onclick="switchLine(1)" >Switch line down</button>
+        <button onclick="setFontSize(2)"><img src="./img/increase font - icon.png" alt=""></button>
+        <button onclick="setFontSize(-2)"><img src="./img/decrease font - icon.png" alt="" ></button>
+        <button><img src="./img/align-to-left.png" alt=""></button>
+        <button onclick="alignCenter()" ><img src="./img/center-text-alignment.png" alt=""></button>
+        <button><img src="./img/align-to-right.png" alt=""></button>
+        <button><img src="./img/paint-board-and-brush.png" alt=""></button>
+        <button onclick="deleteLine()" ><img src="./img/trash.png" alt=""></button>
+        <button><img src="./img/text stroke.png" alt=""></button>
+        <button onclick="setLineHight(10)"><img src="./img/3743287781530177267.svg" alt="" ></button>
+        <button onclick="setLineHight(-10)"><img src="./img/5381474421530177266.svg" alt=""></button>
+        <button onclick="addLine()"><img src="./img/add.png" alt=""></button>
+        <button onclick="switchLine()"><img src="./img/up-and-down-opposite-double-arrows-side-by-side.png" alt="" ></button>
+        
     </div>
-    <section class="grid-container main-layout">
+    <section class="grid-container ">
     </section>
-
+    <footer class="main-footer">
+        <div class="fotter-logo "><img src="./img/LOGO.png" alt="" srcset=""></div>
+        <small>all rights reserved 2019</small>
+    </footer>
     <script src="./js/controler.js"></script>
     <script src="./js/servise.js"></script>
 </body>

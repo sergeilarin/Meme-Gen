@@ -4,31 +4,42 @@
 
 body{
     margin: 0;
-    background-color: #383B42;
+    background-color: #FFFFFF;
 }
 img{
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
-.nav-bar{
-    margin-bottom: 20px;
+.main-header{
     display: flex;
+    align-items:center;
     justify-content: space-between;
-    align-items: center;
-    border-radius: 3rem;
-    height: 74px;
-    background-color: #5970C1;
+    background-color: #FF7F00;
 }
-
 .logo{
-   height: 74px; 
+display: flex;
+height: 22px;
+width: 133px;
 }
-.nav-bar button{
-    cursor: pointer;
-    height: 41px;
-    border: none;
-    background-color: transparent;
+.main-nav{
+    display: flex;
+}
+.main-header .main-nav a{
+    cursor: pointer; 
+    font-family: monospace;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.187rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 66px;
+    width: 80px; 
+}
+.main-nav a:hover{
+    color:#040A2C;
+    box-shadow: inset 0px -5px 0px 0px #040A2C;
 }
 canvas{
     display: block;
@@ -42,21 +53,61 @@ canvas{
     width: 450px;
     height: 700px;
 }
-.grid-container{
-    display: grid;
-    justify-content: center;
-    gap: 5px;
-    grid-template-columns: repeat(auto-fill,174px);
-    grid-auto-rows: 174px;
+button{
+    height: 61px;
+    width: 61px;
+    border: none;
+    border-radius: 25%;
 }
-/* .main-editor{
-    height: 450px;
-    width: 450px;
-    display: grid;
-    grid-template-columns: ;
-} */
 
-.main-layout{
-max-width: 970px;
-margin: 0 auto;
+input{
+    font-family: monospace;
+    font-size: 20px;
+    color: #000000;
+    height: 61px;
+    width: 374px;
+    border: none;
+    border-radius: 14px;
+    
 }
+.grid-container{
+    background-color: #E3E3E3;
+    display: grid;
+    padding:24px 25px 24px 25px;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,278px);
+    grid-auto-rows: 278px;
+}
+.main-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 208px;
+    background-color:#FF7F00;
+    justify-content: center;
+}
+.fotter-logo{
+    margin-bottom: 16px;
+    height: 22px;
+    width: 133px;
+}
+
+small{
+    color:#FFFFFF ;
+    font-size: 1.187rem;
+    font-family:lato-regular;
+    letter-spacing: 0.045em;
+}
+
+
+
+
+
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+

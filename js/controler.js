@@ -26,18 +26,16 @@ function randerGenerator() {
 
 function drawImg() {
     var img = new Image()
-    console.log(img);
     img.src = geImgUrl();
-    console.log(geImgUrl());
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        drawText(gMeme.lines[0].txt ,gMeme.lines[0].height)
-        drawText(gMeme.lines[gLineInd].txt)
+        drawText(gMeme.lines[0].txt, gMeme.lines[0].height)
+        drawText(gMeme.lines[1].txt, gMeme.lines[1].height)
 
     }
 }
 
-function drawText(text,y=gMeme.lines[gLineInd].height) {
+function drawText(text, y=50) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'red'
     gCtx.fillStyle = 'yellow'
@@ -61,8 +59,9 @@ function pageBack() {
 function getLineInd() {
     gLineInd = lineInd()
 }
-function switchLine(num) {
-    gLineInd = num
+function switchLine() {
+    gMeme.selectedLineIdx=(gMeme.selectedLineIdx === 0) ? 1 : 0;
+    gLineInd = (gLineInd === 0) ? 1 : 0;
     var elInput = document.querySelector('input')
     elInput.value = gMeme.lines[gLineInd].txt
 }

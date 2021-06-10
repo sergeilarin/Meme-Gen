@@ -99,6 +99,28 @@ function setLineHight(num) {
     drawImg()
 }
 
+function deleteLine() {
+    if (gMeme.lines[0]===undefined) {
+        gMeme.lines.push({
+            txt: '',
+            size: 30,
+            align: 'left',
+            color: 'red',
+            height: 50
+        })
+        var elInput = document.querySelector('input')
+        elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
+        drawImg()
+        
+        console.log(gMeme.lines[0]);
+    }
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    gMeme.selectedLineIdx = 0
+    var elInput = document.querySelector('input')
+    elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
+    drawImg()
+}
+
 function addLine() {
     var elInput = document.querySelector('input')
     elInput.value = ''
@@ -110,20 +132,14 @@ function addLine() {
         color: 'red',
         height: 380
     })
-    
+
     getLineInd()
 }
 
-function saveAndRestoreExample() {
-    gCtx.strokeStyle = 'red'
-    gCtx.fillStyle = 'white'
-    drawText('Before save', 180, 60)
-    gCtx.save()
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'red'
-    drawText('After save and change', 180, 160)
-    gCtx.restore()
-    drawText('After restore', 100, 360)
+
+function alignCenter() {
+    gMeme.lines[gMeme.selectedLineIdx].align = 'center';
+    drawImg()
 }
 
 function lineInd() {
@@ -139,7 +155,6 @@ function setImg(imgId) {
 function geImgUrl() {
     var url = gImages.filter((img) => {
         if (gMeme.selectedImgId === img.id) {
-            console.log(img.url);
             return img
         }
     })
