@@ -1,5 +1,6 @@
 'use strict'
 
+
 var gImages = [
     {
         id: 1,
@@ -51,42 +52,89 @@ var gImages = [
         url: 'img/10.jpg',
         keywords: ['happy']
     },
+    {
+        id: 11,
+        url: 'img/11.jpg',
+        keywords: ['happy']
+    },
+    {
+        id: 12,
+        url: 'img/12.jpg',
+        keywords: ['happy']
+    },
+    {
+        id: 13,
+        url: 'img/13.jpg',
+        keywords: ['happy']
+    },
+    {
+        id: 14,
+        url: 'img/14.jpg',
+        keywords: ['happy']
+    },
 ]
 
 var gMeme = {
-    selectedImgId:0,
+    selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [
         {
             txt: '',
-            size: 20,
+            size: 30,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            height: 50
         }
     ]
 }
 
-function randerGenerator() {
-    document.querySelector('.canvas-container').style.display = 'block'
-    document.querySelector('.grid-container').style.display = 'none'
+function setFontSize(num) {
+    gMeme.lines[gMeme.selectedLineIdx].size = gMeme.lines[gMeme.selectedLineIdx].size + num
+    drawImg()
 
-    
 }
+function setLineHight(num) {
+    console.log(gMeme.lines[0].height);
+    gMeme.lines[gMeme.selectedLineIdx].height = gMeme.lines[gMeme.selectedLineIdx].height + num
+    drawImg()
+}
+
+function addLine() {
+    var elInput = document.querySelector('input')
+    elInput.value = ''
+    gMeme.selectedLineIdx = 1
+    gMeme.lines.push({
+        txt: '',
+        size: 30,
+        align: 'left',
+        color: 'red',
+        height: 380
+    })
+    
+    getLineInd()
+}
+
+function saveAndRestoreExample() {
+    gCtx.strokeStyle = 'red'
+    gCtx.fillStyle = 'white'
+    drawText('Before save', 180, 60)
+    gCtx.save()
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = 'red'
+    drawText('After save and change', 180, 160)
+    gCtx.restore()
+    drawText('After restore', 100, 360)
+}
+
+function lineInd() {
+    return gMeme.selectedLineIdx
+}
+
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
     randerGenerator()
     drawImg()
 
-}
-
-function drawImg() {
-    var img = new Image()
-    console.log(img);
-    img.src = geImgUrl();
-    console.log(geImgUrl());
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    }
 }
 function geImgUrl() {
     var url = gImages.filter((img) => {

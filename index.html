@@ -11,13 +11,29 @@
 
 <body onload="init()">
 
-    <h2>Ultimate Meme Generator</h2>
+    <nav class="nav-bar">
+        <div class="logo"><img src="./img/LOGO.png" alt="" srcset=""></div>
+        <button onclick="pageBack()">Gullery</button>
+        <button>About</button>
+    </nav>
+    <main></main>
+    <!-- <div class="main-editor">
+        <button class="clear"></button>
+        <button class="plus"></button>
+        <button class="line"></button>
+    </div> -->
     <div class="canvas-container">
-        <input oninput=onTypeInput() name="todoTxt" type="text" placeholder="" autocomplete="off" />
         <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
-        <button onclick="pageBack()" >back to gallery</button>
+        <input oninput=onTypeInput() name="todoTxt" type="text" placeholder="" autocomplete="off" />
+        <button onclick="setFontSize(2)">+</button>
+        <button onclick="setFontSize(-2)">-</button>
+        <button onclick="setLineHight(10)">Up</button>
+        <button onclick="setLineHight(-10)">Down</button>
+        <button onclick="addLine()" >add line</button>
+        <button onclick="switchLine(0)" >Switch line up</button>
+        <button onclick="switchLine(1)" >Switch line down</button>
     </div>
-    <section class="grid-container">
+    <section class="grid-container main-layout">
     </section>
 
     <script src="./js/controler.js"></script>
