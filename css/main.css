@@ -320,9 +320,39 @@ span{
         background-color: #E3E3E3;
         padding:0
     }
-    .main-nav{
-        display: none;
+    .main-nav {
+        position: fixed;
+        right:-235px;
+        top:-140px;
+        flex-direction: column;
+        width: 600px;
+        transform: translateY(0);
+        transition: transform .6s;
     }
+    body.menu-open .main-nav {
+        transform: translateY(158%);
+    }
+    .main-header .main-nav a {
+        font-size: 20px;
+        color: #FFFFFF;
+        width: 351px;
+        text-align: center;
+        background-color: #FF7F00;
+        justify-content: end;
+        padding-left: 12px;
+    }
+    body.menu-open .main-screen{
+        pointer-events: auto;
+        opacity: 1;
+    }
+    .main-nav a:hover{
+        color:#FFFFFF;
+        box-shadow: none;
+    }
+    .serach-icon{
+        opacity: 0;
+    }
+
     .btn-menu{
         display: block;
         font-size: 26px;
