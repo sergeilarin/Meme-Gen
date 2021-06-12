@@ -10,44 +10,83 @@
 </head>
 
 <body onload="init()">
+
     <header class="main-header ">
-
-        <div class="logo "><img src="./img/LOGO.png" alt="" srcset=""></div>
-        <ul class="main-nav clean-list ">
-            <li onclick="pageBack()"><a href="#">Gallery</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-
+        <div class="logo-nav  main-layout">
+            <div class="logo "><img src="./img/LOGO.png" alt="" srcset=""></div>
+            <ul class="main-nav clean-list ">
+                <li onclick="pageBack()"><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <button class="btn-menu" onclick="toggleMenu()">☰</button>
     </header>
 
-    <!-- <nav class="nav-bar">
-        <div class="logo"><img src="./img/LOGO.png" alt="" srcset=""></div>
-        <button onclick="pageBack()">Gullery</button>
-        <button>About</button>
-    </nav> -->
-    <div class="canvas-container">
-        <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
-        <input oninput=onTypeInput() name="todoTxt" type="text" placeholder="" autocomplete="off" />
-        <button onclick="setFontSize(2)"><img src="./img/increase font - icon.png" alt=""></button>
-        <button onclick="setFontSize(-2)"><img src="./img/decrease font - icon.png" alt="" ></button>
-        <button><img src="./img/align-to-left.png" alt=""></button>
-        <button onclick="alignCenter()" ><img src="./img/center-text-alignment.png" alt=""></button>
-        <button><img src="./img/align-to-right.png" alt=""></button>
-        <button><img src="./img/paint-board-and-brush.png" alt=""></button>
-        <button onclick="deleteLine()" ><img src="./img/trash.png" alt=""></button>
-        <button><img src="./img/text stroke.png" alt=""></button>
-        <button onclick="setLineHight(10)"><img src="./img/3743287781530177267.svg" alt="" ></button>
-        <button onclick="setLineHight(-10)"><img src="./img/5381474421530177266.svg" alt=""></button>
-        <button onclick="addLine()"><img src="./img/add.png" alt=""></button>
-        <button onclick="switchLine()"><img src="./img/up-and-down-opposite-double-arrows-side-by-side.png" alt="" ></button>
-        
+    <div class="search-bar">
+        <form onsubmit="serchImg(event)">
+            <input class="search" type="search" placeholder="Enter search keyword">
+            <button class="serach-icon"><img src="./img/search-icon.png" alt=""></button>
+        </form>
+        <div class="category">
+            <span class="funny">funny</span>
+            <span class="comics">comics</span>
+            <span class="dogs">dogs</span>
+            <span class="drinks">drinks</span>
+            <span class="books">books</span>
+            <span class="more">more...</span>
+        </div>
     </div>
-    <section class="grid-container ">
-    </section>
+
+    <main class="screen">
+        <div class="genereitor">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="553" width="543" onclick="draw(event)"></canvas>
+            </div>
+            <div class="editor">
+                <input class="text item-1" oninput=onTypeInput() name="todoTxt" type="text" placeholder=""
+                    autocomplete="off" />
+                <button class="margin-right margin-bottom item-2" onclick="setLineHight(10)"><img
+                        src="./img/3743287781530177267.svg" alt=""></button>
+                <button class="margin-right margin-bottom item-3" onclick="setLineHight(-10)"><img
+                        src="./img/5381474421530177266.svg" alt=""></button>
+                <button class="margin-right margin-bottom item-4" onclick="switchLine()"><img
+                        src="./img/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button class="margin-right margin-bottom item-5" onclick="addLine()"><img src="./img/add.png" alt=""></button>
+                <button class="item-6" onclick="deleteLine()"><img src="./img/trash.png" alt=""></button>
+                <button class="margin-right item-7" onclick="setFontSize(2)"><img src="./img/increase font - icon.png"
+                        alt=""></button>
+                <button class="margin-right item-8" onclick="setFontSize(-2)"><img src="./img/decrease font - icon.png"
+                        alt=""></button>
+                <button class="margin-right item-9" onclick="alignLeft()"><img src="./img/align-to-left.png" alt=""></button>
+                <button class="margin-right item-10" onclick="alignCenter()"><img src="./img/center-text-alignment.png"
+                        alt=""></button>
+                <button class="item-11" onclick="alignRigth()"><img src="./img/align-to-right.png" alt=""></button>
+                <select class="margin-right item-12" onchange="onSetFont(this.value)">
+                    <option value="IMPACT">IMPACT</option>
+                    <option value="cursive">cursive</option>
+                    <option value="monospace">monospace</option>
+                    <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+                </select>
+                <button onclick="setTxtBorder()" class="margin-right item-13"><img src="./img/text stroke.png" alt=""></button>
+                <div class="colorBtn item-14">
+                    <input type="color" value="#ff0000" oninput="setColor(this.value)"
+                        style="opacity:0; position:absolute; left:0;top:0;width:100%;height:100% " />
+                    <button><img src="./img/paint-board-and-brush.png" alt=""></button>
+                </div>
+
+                <button class="download item-15"><a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a></button>
+                <button class="share item-16">Share</button>
+            </div>
+        </div>
+    </main>
+
+    <section class="grid-container main-layout "></section>
+
     <footer class="main-footer">
         <div class="fotter-logo "><img src="./img/LOGO.png" alt="" srcset=""></div>
         <small>all rights reserved 2019</small>
     </footer>
+
     <script src="./js/controler.js"></script>
     <script src="./js/servise.js"></script>
 </body>

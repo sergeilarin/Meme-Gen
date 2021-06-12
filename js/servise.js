@@ -80,9 +80,10 @@ var gMeme = {
     lines: [
         {
             txt: '',
-            size: 30,
+            size: 40,
             align: 'left',
             color: 'red',
+            txtBorder: 'black',
             height: 50
         }
     ]
@@ -94,51 +95,70 @@ function setFontSize(num) {
 
 }
 function setLineHight(num) {
-    console.log(gMeme.lines[0].height);
     gMeme.lines[gMeme.selectedLineIdx].height = gMeme.lines[gMeme.selectedLineIdx].height + num
     drawImg()
 }
 
 function deleteLine() {
-    if (gMeme.lines[0]===undefined) {
-        gMeme.lines.push({
-            txt: '',
-            size: 30,
-            align: 'left',
-            color: 'red',
-            height: 50
-        })
-        var elInput = document.querySelector('input')
-        elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
-        drawImg()
-        
-        console.log(gMeme.lines[0]);
-    }
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx = 0
-    var elInput = document.querySelector('input')
+    getLineInd()
+    console.log(gMeme.lines[0]);
+    if (gMeme.lines[0] === undefined) {
+        gMeme.lines.push({
+            txt: '',
+            size: 40,
+            align: 'left',
+            color: 'red',
+            txtBorder: 'black',
+            height: 50
+        })
+        gMeme.selectedLineIdx = 0
+    }
+    var elInput = document.querySelector('.text')
     elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
     drawImg()
 }
 
 function addLine() {
-    var elInput = document.querySelector('input')
+    if ( gMeme.selectedLineIdx === 0) {
+        gMeme.lines.push({
+            txt: '',
+            size: 40,
+            align: 'left',
+            color: 'red',
+            txtBorder: 'black',
+            height: 500
+        })
+        gMeme.selectedLineIdx = 1
+        
+    } else if(gMeme.selectedLineIdx === 1) {
+        gMeme.lines.push({
+            txt: '',
+            size: 40,
+            align: 'left',
+            color: 'red',
+            txtBorder: 'black',
+            height: 280
+        })
+        gMeme.selectedLineIdx = 2
+        
+    }
+    var elInput = document.querySelector('.text')
     elInput.value = ''
-    gMeme.selectedLineIdx = 1
-    gMeme.lines.push({
-        txt: '',
-        size: 30,
-        align: 'left',
-        color: 'red',
-        height: 380
-    })
-
     getLineInd()
 }
 
-
+function alignLeft() {
+    gMeme.lines[gMeme.selectedLineIdx].align = 'left';
+    drawImg()
+}
 function alignCenter() {
     gMeme.lines[gMeme.selectedLineIdx].align = 'center';
+    drawImg()
+}
+function alignRigth() {
+    gMeme.lines[gMeme.selectedLineIdx].align = 'right';
     drawImg()
 }
 
