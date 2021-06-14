@@ -24,15 +24,15 @@
 
     <div class="search-bar">
         <form onsubmit="serchImg(event)">
-            <input class="search" type="search" placeholder="Enter search keyword">
+            <input oninput="onSetFilter(this.value)" class="search" type="search" placeholder="Enter search keyword">
             <button class="serach-icon"><img src="./img/search-icon.png" alt=""></button>
         </form>
         <div class="category">
-            <span class="funny">funny</span>
-            <span class="comics">comics</span>
-            <span class="dogs">dogs</span>
-            <span class="drinks">drinks</span>
-            <span class="books">books</span>
+            <span onclick="onSetFilter(id)"  id="happy" class="happy">happy</span>
+            <span onclick="onSetFilter(id)" id="dog" class="dog">dog</span>
+            <span onclick="onSetFilter(id)" id="baby" class="baby">baby</span>
+            <span onclick="onSetFilter(id)" id="man" class="man">man</span>
+            <span onclick="onSetFilter(id)" id="putin" class="putin">putin</span>
             <span class="more">more...</span>
         </div>
     </div>

@@ -8,12 +8,11 @@ function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
     getLineInd()
-    randerGallery()
+    randerGallery(getImges())
 
 }
 
-function randerGallery() {
-    var imges = getImges()
+function randerGallery(imges) {
     var strHTMLS = imges.map((img) => {
         return `<img onclick="setImg(${img.id})" src="${img.url}" alt=""></img>`
     })
@@ -48,8 +47,8 @@ function drawText(text, y = 50, size, border, color, alignment) {
     gCtx.fillStyle = color
     gCtx.font = size + 'px' + ' ' + gCurrFont
     gCtx.textAlign = alignment
-    gCtx.fillText(text, 50, y)
-    gCtx.strokeText(text, 50, y)
+    gCtx.fillText(text, 230, y)
+    gCtx.strokeText(text, 230, y)
 }
 
 
@@ -58,10 +57,19 @@ function onTypeInput() {
     drawImg()
 
 }
+function onSetFilter(txt) {
+    setFilter(txt.toLowerCase());
+    var images = getImagesForDisplay();
+    randerGallery(images)
+}
+
 function pageBack() {
+    randerGallery(getImges())
     document.querySelector('.screen').style.display = 'none'
     document.querySelector('.search-bar').style.display = 'flex'
     document.querySelector('.grid-container').style.display = 'grid'
+
+
 }
 
 function getLineInd() {

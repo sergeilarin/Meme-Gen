@@ -1,31 +1,31 @@
 'use strict'
-
+var gFilterBy = '';
 
 var gImages = [
     {
         id: 1,
         url: 'img/1.jpg',
-        keywords: ['happy']
+        keywords: ['donald']
     },
     {
         id: 2,
         url: 'img/2.jpg',
-        keywords: ['happy']
+        keywords: ['dog']
     },
     {
         id: 3,
         url: 'img/3.jpg',
-        keywords: ['happy']
+        keywords: ['dog','baby']
     },
     {
         id: 4,
         url: 'img/4.jpg',
-        keywords: ['happy']
+        keywords: ['cat']
     },
     {
         id: 5,
         url: 'img/5.jpg',
-        keywords: ['happy']
+        keywords: ['baby']
     },
     {
         id: 6,
@@ -35,7 +35,7 @@ var gImages = [
     {
         id: 7,
         url: 'img/7.jpg',
-        keywords: ['happy']
+        keywords: ['baby']
     },
     {
         id: 8,
@@ -55,22 +55,27 @@ var gImages = [
     {
         id: 11,
         url: 'img/11.jpg',
-        keywords: ['happy']
+        keywords: ['love','man']
     },
     {
         id: 12,
         url: 'img/12.jpg',
-        keywords: ['happy']
+        keywords: ['man']
     },
     {
         id: 13,
         url: 'img/13.jpg',
-        keywords: ['happy']
+        keywords: ['happy','man']
     },
     {
         id: 14,
-        url: 'img/14.jpg',
-        keywords: ['happy']
+        url: 'img/18.jpg',
+        keywords: ['toy']
+    },
+    {
+        id: 15,
+        url: 'img/17.jpg',
+        keywords: ['putin','man']
     },
 ]
 
@@ -81,7 +86,7 @@ var gMeme = {
         {
             txt: '',
             size: 40,
-            align: 'left',
+            align: 'center',
             color: 'red',
             txtBorder: 'black',
             height: 50
@@ -108,7 +113,7 @@ function deleteLine() {
         gMeme.lines.push({
             txt: '',
             size: 40,
-            align: 'left',
+            align: 'center',
             color: 'red',
             txtBorder: 'black',
             height: 50
@@ -125,7 +130,7 @@ function addLine() {
         gMeme.lines.push({
             txt: '',
             size: 40,
-            align: 'left',
+            align: 'center',
             color: 'red',
             txtBorder: 'black',
             height: 500
@@ -136,7 +141,7 @@ function addLine() {
         gMeme.lines.push({
             txt: '',
             size: 40,
-            align: 'left',
+            align: 'center',
             color: 'red',
             txtBorder: 'black',
             height: 280
@@ -184,3 +189,16 @@ function geImgUrl() {
 function getImges() {
     return gImages
 }
+
+function setFilter(filterBy) {
+    gFilterBy = filterBy;
+  }
+  
+  function getImagesForDisplay() {
+    var images = gImages.filter((image) => {
+      return image.keywords.some((word) => {
+        return word.includes(gFilterBy);
+      });
+    });
+    return images;
+  }

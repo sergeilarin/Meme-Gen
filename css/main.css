@@ -227,6 +227,11 @@ select{
 }
 .grid-container img{
     cursor: pointer;
+    border-radius: 20px;
+}
+.grid-container img:hover{
+     box-shadow: 0px 1px 28px 11px rgba(0,0,0,0.92);
+     transition: 0.3s;
 }
 .main-footer{
     display: flex;
@@ -320,6 +325,10 @@ span{
         background-color: #E3E3E3;
         padding:0
     }
+    .grid-container img:hover{
+        box-shadow: 0px 0px 7px 6px #000000;
+        transition: 0.3s;
+   }
     .main-nav {
         position: fixed;
         right:-235px;
